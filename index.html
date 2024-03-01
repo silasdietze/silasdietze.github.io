@@ -12,7 +12,7 @@
         }
 
         header {
-            background-color: #26A792;
+            background-color: #333;
             color: #fff;
             text-align: center;
             padding: 20px 0;
@@ -26,6 +26,7 @@
         }
 
         .chart {
+            position: relative;
             width: 100%;
             height: 400px;
             border: 1px solid #ccc;
@@ -39,7 +40,33 @@
             border: none;
         }
 
-        h1 {
+        .info-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+        }
+
+        .info-popup {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+        }
+
+        .info-popup p {
             margin: 0;
         }
     </style>
@@ -49,10 +76,56 @@
         <h1>Hansgrohe Dashboards</h1>
     </header>
     <div class="grid-container">
-        <div class="chart"><iframe src="https://chart-embed.service.newrelic.com/herald/2b0f538e-feee-45c7-a174-3878f9a80c14?height=400px&timepicker=true" frameborder="0"></iframe></div>
-        <div class="chart"><iframe src="https://chart-embed.service.newrelic.com/herald/17d20fbe-3e3e-480f-8fc5-b025e4c1660c?height=400px&timepicker=true" frameborder="0"></iframe></div>
-        <div class="chart"><iframe src="https://chart-embed.service.newrelic.com/herald/dc40b240-c306-4b91-8d33-4fb6ee151538?height=400px&timepicker=true" frameborder="0"></iframe></div>
-        <div class="chart"><iframe src="https://chart-embed.service.newrelic.com/herald/2bb85222-61d9-4009-8c89-00a0791929ab?height=400px&timepicker=true" frameborder="0"></iframe></div>
+        <div class="chart">
+            <iframe src="https://chart-embed.service.newrelic.com/herald/2b0f538e-feee-45c7-a174-3878f9a80c14?height=400px&timepicker=true" frameborder="0"></iframe>
+            <button class="info-button" onclick="showInfo('Chart 1 Information')">i</button>
+            <div class="info-popup" id="info-popup-1">
+                <p>Chart 1 Information:</p>
+                <p>This chart displays...</p>
+            </div>
+        </div>
+        <div class="chart">
+            <iframe src="https://chart-embed.service.newrelic.com/herald/17d20fbe-3e3e-480f-8fc5-b025e4c1660c?height=400px&timepicker=true" frameborder="0"></iframe>
+            <button class="info-button" onclick="showInfo('Chart 2 Information')">i</button>
+            <div class="info-popup" id="info-popup-2">
+                <p>Chart 2 Information:</p>
+                <p>This chart displays...</p>
+            </div>
+        </div>
+        <div class="chart">
+            <iframe src="https://chart-embed.service.newrelic.com/herald/dc40b240-c306-4b91-8d33-4fb6ee151538?height=400px&timepicker=true" frameborder="0"></iframe>
+            <button class="info-button" onclick="showInfo('Chart 3 Information')">i</button>
+            <div class="info-popup" id="info-popup-3">
+                <p>Chart 3 Information:</p>
+                <p>This chart displays...</p>
+            </div>
+        </div>
+        <div class="chart">
+            <iframe src="https://chart-embed.service.newrelic.com/herald/2bb85222-61d9-4009-8c89-00a0791929ab?height=400px&timepicker=true" frameborder="0"></iframe>
+            <button class="info-button" onclick="showInfo('Chart 4 Information')">i</button>
+            <div class="info-popup" id="info-popup-4">
+                <p>Chart 4 Information:</p>
+                <p>This chart displays...</p>
+            </div>
+        </div>
     </div>
+
+    <script>
+        function showInfo(info) {
+            var popup = document.createElement('div');
+            popup.classList.add('info-popup');
+            popup.innerHTML = '<p>' + info + '</p>';
+            document.body.appendChild(popup);
+
+            setTimeout(function() {
+                popup.style.display = 'block';
+            }, 100);
+            
+            setTimeout(function() {
+                popup.style.display = 'none';
+                document.body.removeChild(popup);
+            }, 5000);
+        }
+    </script>
 </body>
 </html>
