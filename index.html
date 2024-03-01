@@ -16,15 +16,58 @@
             width: 100%;
             height: 600px; /* Adjusted height */
             border: 1px solid #ccc;
+            position: relative; /* Added */
+        }
+
+        .navigation-bar {
+            position: absolute; /* Added */
+            top: 0; /* Added */
+            left: 0; /* Added */
+            width: 100%; /* Added */
+            background-color: rgba(255, 255, 255, 0.8); /* Added */
+            padding: 10px; /* Added */
+            box-sizing: border-box; /* Added */
         }
     </style>
 </head>
 <body>
     <div class="grid-container">
-        <div class="chart"><iframe src="https://chart-embed.service.newrelic.com/herald/2b0f538e-feee-45c7-a174-3878f9a80c14?height=600px&timepicker=true" frameborder="0"></iframe></div>
-        <div class="chart"><iframe src="https://chart-embed.service.newrelic.com/herald/17d20fbe-3e3e-480f-8fc5-b025e4c1660c?height=600px&timepicker=true" frameborder="0"></iframe></div>
-        <div class="chart"><iframe src="https://chart-embed.service.newrelic.com/herald/dc40b240-c306-4b91-8d33-4fb6ee151538?height=600px&timepicker=true" frameborder="0"></iframe></div>
-        <div class="chart"><iframe src="https://chart-embed.service.newrelic.com/herald/2bb85222-61d9-4009-8c89-00a0791929ab?height=600px&timepicker=true" frameborder="0"></iframe></div>
+        <div class="chart">
+            <div class="navigation-bar">
+                <!-- Navigation elements for the first chart -->
+                <a href="#">Link 1</a>
+                <a href="#">Link 2</a>
+                <!-- Add more navigation elements as needed -->
+            </div>
+            <iframe src="https://chart-embed.service.newrelic.com/herald/2b0f538e-feee-45c7-a174-3878f9a80c14?height=600px&timepicker=true" frameborder="0"></iframe>
+        </div>
+        <div class="chart">
+            <div class="navigation-bar">
+                <!-- Navigation elements for the second chart -->
+                <a href="#">Link 1</a>
+                <a href="#">Link 2</a>
+                <!-- Add more navigation elements as needed -->
+            </div>
+            <iframe src="https://chart-embed.service.newrelic.com/herald/17d20fbe-3e3e-480f-8fc5-b025e4c1660c?height=600px&timepicker=true" frameborder="0"></iframe>
+        </div>
+        <div class="chart">
+            <div class="navigation-bar">
+                <!-- Navigation elements for the third chart -->
+                <a href="#">Link 1</a>
+                <a href="#">Link 2</a>
+                <!-- Add more navigation elements as needed -->
+            </div>
+            <iframe src="https://chart-embed.service.newrelic.com/herald/dc40b240-c306-4b91-8d33-4fb6ee151538?height=600px&timepicker=true" frameborder="0"></iframe>
+        </div>
+        <div class="chart">
+            <div class="navigation-bar">
+                <!-- Navigation elements for the fourth chart -->
+                <a href="#">Link 1</a>
+                <a href="#">Link 2</a>
+                <!-- Add more navigation elements as needed -->
+            </div>
+            <iframe src="https://chart-embed.service.newrelic.com/herald/2bb85222-61d9-4009-8c89-00a0791929ab?height=600px&timepicker=true" frameborder="0"></iframe>
+        </div>
     </div>
 </body>
 </html>
